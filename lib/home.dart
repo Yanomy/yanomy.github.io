@@ -77,6 +77,7 @@ class HomePage extends StatelessWidget {
   _buildSidebar(){
     return SidebarX(
       controller: _controller,
+        animationDuration: Duration(milliseconds: 50),
       theme: SidebarXTheme(
         margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
