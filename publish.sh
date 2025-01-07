@@ -1,4 +1,4 @@
 #!/bin/sh
 
-flutter build web --web-renderer=html
+flutter build web --release --web-renderer=html
 cp -a build/web/. docs/
