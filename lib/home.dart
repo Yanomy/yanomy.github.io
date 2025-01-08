@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
-import 'package:yanomy_github_io/util/post.dart';
+import 'package:yanomy_github_io/util/assets.dart';
 
 const primaryColor = Color(0xFF685BFF);
 const canvasColor = Color(0xFF2E2E48);
@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     Text("Yanomy.com"),
-                    ElevatedButton(onPressed: () => PostUtil.allPosts, child: Text("load"))
+                    ElevatedButton(onPressed: () => AssetsUtil.allPosts, child: Text("load"))
                   ],
                 ),
               ),

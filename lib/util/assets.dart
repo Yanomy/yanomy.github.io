@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 
-class PostUtil {
-  PostUtil._();
+class AssetsUtil {
+  AssetsUtil._();
 
   static allPosts() async {
     AssetManifest manifest =
