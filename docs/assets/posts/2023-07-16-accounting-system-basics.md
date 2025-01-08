@@ -1,6 +1,6 @@
 ---
 title: Accounting System Basics
-date: 2023-7-16T11:10:33 +0800
+createdAt: 2023-7-16T11:10:33 +0800
 author: yan_h
 categories: [ Accounting ]
 tags: [ Accounting, Bookkeeping, Software Design ]

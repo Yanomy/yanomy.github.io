@@ -1,6 +1,6 @@
 ---
 title: Advanced Redis Data Types
-date: 2023-05-27T11:31:29 +0800
+createdAt: 2023-05-27T11:31:29 +0800
 author: yan_h
 categories: [Redis]
 tags: [Redis, Redis Data Types, Jedis, 「Redis Essentials」]

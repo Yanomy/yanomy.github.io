@@ -1,6 +1,6 @@
 ---
 title: Time Series(A Collection of Observations)
-date: 2023-05-29T19:22:57 +0800
+createdAt: 2023-05-29T19:22:57 +0800
 author: yan_h
 categories: [Redis]
 tags: [Redis, Time Series, Jedis, 「Redis Essentials」]

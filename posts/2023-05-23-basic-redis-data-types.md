@@ -1,6 +1,6 @@
 ---
 title: Basic Redis Data Types
-date: 2023-05-23T23:55:53 +0800
+createdAt: 2023-05-23T23:55:53 +0800
 author: yan_h
 categories: [Redis]
 tags: [Redis, Redis Data Types, Jedis, 「Redis Essentials」]

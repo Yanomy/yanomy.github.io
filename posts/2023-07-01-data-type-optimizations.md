@@ -1,6 +1,6 @@
 ---
 title: Data Type Optimizations
-date: 2023-07-01T11:39:13 +0800
+createdAt: 2023-07-01T11:39:13 +0800
 author: yan_h
 categories: [Redis]
 tags: [Redis, Data Type Optimizations, Jedis, 「Redis Essentials」]

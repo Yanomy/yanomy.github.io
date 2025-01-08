@@ -1,6 +1,6 @@
 ---
 title: Ideas for Code Review and Design Review
-date: 2023-06-21T22:15:33 +0800
+createdAt: 2023-06-21T22:15:33 +0800
 author: yan_h
 categories: [ Career ]
 tags: [ Career, Code Review, Design Review, Staff Engineer, Coaching, 「The Staff Engineer's Path」 ]
