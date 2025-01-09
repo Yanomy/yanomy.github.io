@@ -1,8 +1,12 @@
 ---
 title: Accounting System Basics
-createdAt: 2023-7-16T11:10:33 +0800
-categories: [ Accounting ]
-tags: [ Accounting, Bookkeeping, Software Design ]
+createdAt: 2023-07-16T11:10:33 +0800
+categories: 
+  - Accounting
+tags: 
+  - Accounting
+  - Bookkeeping
+  - Software Design
 ---
 
 ## Double-Entry Booking

@@ -1,8 +1,13 @@
 ---
 title: Accounting System - How would ChatGPT Design
-createdAt: 2023-7-24T19:58:43 +0800
-categories: [ Accounting ]
-tags: [ Accounting, Bookkeeping, Software Design, ChatGPT ]
+createdAt: 2023-07-24T19:58:43 +0800
+categories: 
+  - Accounting
+tags: 
+  - Accounting
+  - Bookkeeping
+  - Software Design
+  - ChatGPT
 ---
 
 Q: How to design an accounting system

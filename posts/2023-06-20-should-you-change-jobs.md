@@ -1,8 +1,13 @@
 ---
 title: Should You Change Jobs?
 createdAt: 2023-06-20T21:42:05 +0800
-categories: [ Career ]
-tags: [ Career, Job Change, Staff Engineer, 「The Staff Engineer's Path」 ]
+categories: 
+  - Career
+tags: 
+  - Career
+  - Job Change
+  - Staff Engineer
+  - 「The Staff Engineer's Path」
 ---
 
 ## Reasons to stay in the same role or company

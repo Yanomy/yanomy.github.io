@@ -2,11 +2,14 @@ import 'package:yanomy_github_io/util/pair.dart';
 
 enum PostCategory {
   redis,
+  career,
+  accounting,
+  algorithm,
   ;
 
   factory PostCategory.of(String value) {
     for (PostCategory c in values) {
-      if (c.name == value) return c;
+      if (c.name.toLowerCase() == value.toLowerCase()) return c;
     }
     throw Exception("Unknown $PostCategory value: $value");
   }

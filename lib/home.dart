@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     Text("Yanomy.com"),
-                    ElevatedButton(onPressed: () => AssetsUtil.allPosts, child: Text("load"))
+                    ElevatedButton(onPressed: () => AssetsUtil.allPosts(), child: Text("load"))
                   ],
                 ),
               ),

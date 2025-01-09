@@ -1,8 +1,13 @@
 ---
 title: The Pillars of Staff Engineering
 createdAt: 2023-06-27T23:14:48 +0800
-categories: [ Career ]
-tags: [ Career, Staff Engineer, Coaching, 「The Staff Engineer's Path」 ]
+categories: 
+  - Career
+tags: 
+  - Career
+  - Staff Engineer
+  - Coaching
+  - 「The Staff Engineer's Path」
 ---
 
 If we unpack the staff engineer role, there are 3 pillars:
