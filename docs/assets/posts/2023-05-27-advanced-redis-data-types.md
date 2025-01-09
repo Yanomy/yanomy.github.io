@@ -1,8 +1,13 @@
 ---
 title: Advanced Redis Data Types
 createdAt: 2023-05-27T11:31:29 +0800
-categories: [Redis]
-tags: [Redis, Redis Data Types, Jedis, 「Redis Essentials」]
+categories: 
+  - Redis
+tags: 
+  - Redis
+  - Redis Data Types
+  - Jedis
+  - 「Redis Essentials」
 ---
 
 This chapter introduces the Set, Sorted Set, Bitmap, and HyperLogLog data types.

@@ -1,8 +1,13 @@
 ---
 title: Commands(Where the Wild Things Are)
 createdAt: 2023-06-01T07:28:44 +0800
-categories: [Redis]
-tags: [Redis, Time Series, Jedis, 「Redis Essentials」]
+categories: 
+  - Redis
+tags: 
+  - Redis
+  - Time Series
+  - Jedis
+  - 「Redis Essentials」
 ---
 
 This chapter gives an overview of many different Redis commands and features,

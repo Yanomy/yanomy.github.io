@@ -1,8 +1,12 @@
 ---
 title: Accounting System Batches
-createdAt: 2023-7-20T17:10:23 +0800
-categories: [ Accounting ]
-tags: [ Accounting, Bookkeeping, Software Design ]
+createdAt: 2023-07-20T17:10:23 +0800
+categories: 
+  - Accounting
+tags: 
+  - Accounting
+  - Bookkeeping
+  - Software Design
 ---
 
 A batch is used to group journals in a time-bounded period.

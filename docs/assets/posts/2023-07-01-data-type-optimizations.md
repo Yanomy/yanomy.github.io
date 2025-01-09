@@ -1,8 +1,13 @@
 ---
 title: Data Type Optimizations
 createdAt: 2023-07-01T11:39:13 +0800
-categories: [Redis]
-tags: [Redis, Data Type Optimizations, Jedis, 「Redis Essentials」]
+categories: 
+  - Redis
+tags: 
+  - Redis
+  - Data Type Optimizations
+  - Jedis
+  - 「Redis Essentials」
 ---
 
 In Redis, all data types can use different encodings to save memory or improve performance. For instance,

@@ -1,8 +1,13 @@
 ---
 title: Three Maps
 createdAt: 2023-06-25T21:40:03 +0800
-categories: [ Career ]
-tags: [ Career, Staff Engineer, Coaching, 「The Staff Engineer's Path」 ]
+categories: 
+  - Career
+tags: 
+  - Career
+  - Staff Engineer
+  - Coaching
+  - 「The Staff Engineer's Path」
 ---
 
 As a staff engineer, you need a broad view. You won't make good choices about what to work on unless you can step

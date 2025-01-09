@@ -1,8 +1,14 @@
 ---
 title: How to be Guardrails
 createdAt: 2023-06-21T22:15:33 +0800
-categories: [ Career ]
-tags: [ Career, Guardrails, Staff Engineer, Coaching, 「The Staff Engineer's Path」 ]
+categories: 
+  - Career
+tags: 
+  - Career
+  - Guardrails
+  - Coaching
+  - Staff Engineer
+  - 「The Staff Engineer's Path」
 ---
 
 ## Guardrails

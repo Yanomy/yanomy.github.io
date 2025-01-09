@@ -1,8 +1,13 @@
 ---
 title: Basic Redis Data Types
 createdAt: 2023-05-23T23:55:53 +0800
-categories: [Redis]
-tags: [Redis, Redis Data Types, Jedis, 「Redis Essentials」]
+categories: 
+  - Redis
+tags: 
+  - Redis
+  - Redis Data Types
+  - Jedis
+  - 「Redis Essentials」
 ---
 
 Redis supports various basic data types.
