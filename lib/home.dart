@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
+import 'package:yanomy_github_io/page/post.dart';
 import 'package:yanomy_github_io/util/assets.dart';
 
 const primaryColor = Color(0xFF685BFF);
@@ -19,42 +20,43 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isSmallScreen = MediaQuery.of(context).size.width < 600;
-    return Builder(
-      builder: (context) {
-        return Scaffold(
-          key: _key,
-          appBar: isSmallScreen
-              ? AppBar(
-            backgroundColor: canvasColor,
-            title: Text(_getTitleByIndex(_controller.selectedIndex)),
-            leading: IconButton(
-              onPressed: () {
-                // if (!Platform.isAndroid && !Platform.isIOS) {
-                //   _controller.setExtended(true);
-                // }
-                _key.currentState?.openDrawer();
-              },
-              icon: const Icon(Icons.menu),
-            ),
-          )
-              : null,
-          drawer: _buildSidebar(),
-          body: Row(
-            children: [
-              if (!isSmallScreen) _buildSidebar(),
-              Expanded(
-                child: Column(
-                  children: [
-                    Text("Yanomy.com"),
-                    ElevatedButton(onPressed: () => AssetsUtil.allPosts(), child: Text("load"))
-                  ],
+    return Builder(builder: (context) {
+      return Scaffold(
+        key: _key,
+        appBar: isSmallScreen
+            ? AppBar(
+                backgroundColor: canvasColor,
+                title: Text(_getTitleByIndex(_controller.selectedIndex)),
+                leading: IconButton(
+                  onPressed: () {
+                    // if (!Platform.isAndroid && !Platform.isIOS) {
+                    //   _controller.setExtended(true);
+                    // }
+                    _key.currentState?.openDrawer();
+                  },
+                  icon: const Icon(Icons.menu),
                 ),
+              )
+            : null,
+        drawer: _buildSidebar(),
+        body: Row(
+          children: [
+            isSmallScreen? SizedBox.shrink() : _buildSidebar(),
+            Expanded(
+              child: Column(
+                children: [
+                  Text("Yanomy.com"),
+                  ElevatedButton(
+                      onPressed: () => AssetsUtil.allPosts(),
+                      child: Text("load")),
+                  Expanded(child: PostList()),
+                ],
               ),
-            ],
-          ),
-        );
-      }
-    );
+            ),
+          ],
+        ),
+      );
+    });
   }
 
   String _getTitleByIndex(int index) {
@@ -78,10 +80,10 @@ class HomePage extends StatelessWidget {
     }
   }
 
-  _buildSidebar(){
+  _buildSidebar() {
     return SidebarX(
       controller: _controller,
-        animationDuration: Duration(milliseconds: 50),
+      animationDuration: Duration(milliseconds: 50),
       theme: SidebarXTheme(
         margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(

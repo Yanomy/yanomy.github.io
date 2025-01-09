@@ -1,4 +1,4 @@
-import 'package:yanomy_github_io/util/pair.dart';
+import 'dart:math';
 
 enum PostCategory {
   redis,
@@ -29,4 +29,10 @@ class Post {
       required this.createdAt,
       this.categories = const [],
       this.tags = const []});
+
+  String get summary {
+    String summary =
+        contents.substring(0, min(contents.length, 300)).replaceAll("\n", "").replaceAll('#', '');
+    return "$summary...";
+  }
 }
