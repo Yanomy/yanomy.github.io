@@ -9,7 +9,7 @@ tags:
   - Design Review
   - Staff Engineer
   - Coaching
-  - 「The Staff Engineer's Path」
+  - The Staff Engineer's Path
 ---
 
 ## Ideas for Code Review and Design Review

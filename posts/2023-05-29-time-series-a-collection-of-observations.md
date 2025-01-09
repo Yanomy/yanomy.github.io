@@ -7,7 +7,7 @@ tags:
   - Redis
   - Time Series
   - Jedis
-  - 「Redis Essentials」
+  - Redis Essentials
 ---
 
 A time series is an ordered sequence of values(data points) made over a time interval.

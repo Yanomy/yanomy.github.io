@@ -8,7 +8,7 @@ tags:
   - Guardrails
   - Coaching
   - Staff Engineer
-  - 「The Staff Engineer's Path」
+  - The Staff Engineer's Path
 ---
 
 ## Guardrails

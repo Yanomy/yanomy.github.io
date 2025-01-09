@@ -7,7 +7,7 @@ tags:
   - Redis
   - Redis Data Types
   - Jedis
-  - 「Redis Essentials」
+  - Redis Essentials
 ---
 
 Redis supports various basic data types.

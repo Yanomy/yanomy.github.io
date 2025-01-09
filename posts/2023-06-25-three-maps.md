@@ -7,7 +7,7 @@ tags:
   - Career
   - Staff Engineer
   - Coaching
-  - 「The Staff Engineer's Path」
+  - The Staff Engineer's Path
 ---
 
 As a staff engineer, you need a broad view. You won't make good choices about what to work on unless you can step

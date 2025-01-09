@@ -7,7 +7,7 @@ tags:
   - Redis
   - Time Series
   - Jedis
-  - 「Redis Essentials」
+  - Redis Essentials
 ---
 
 This chapter gives an overview of many different Redis commands and features,

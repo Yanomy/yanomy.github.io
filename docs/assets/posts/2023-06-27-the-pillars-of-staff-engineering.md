@@ -7,7 +7,7 @@ tags:
   - Career
   - Staff Engineer
   - Coaching
-  - 「The Staff Engineer's Path」
+  - The Staff Engineer's Path
 ---
 
 If we unpack the staff engineer role, there are 3 pillars:

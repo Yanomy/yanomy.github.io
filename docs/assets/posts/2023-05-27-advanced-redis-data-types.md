@@ -7,7 +7,7 @@ tags:
   - Redis
   - Redis Data Types
   - Jedis
-  - 「Redis Essentials」
+  - Redis Essentials
 ---
 
 This chapter introduces the Set, Sorted Set, Bitmap, and HyperLogLog data types.

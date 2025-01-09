@@ -7,7 +7,7 @@ tags:
   - Career
   - Job Change
   - Staff Engineer
-  - 「The Staff Engineer's Path」
+  - The Staff Engineer's Path
 ---
 
 ## Reasons to stay in the same role or company
