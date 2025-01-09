@@ -1,7 +1,6 @@
 ---
 title: Accounting System - How would ChatGPT Design
 createdAt: 2023-7-24T19:58:43 +0800
-author: yan_h
 categories: [ Accounting ]
 tags: [ Accounting, Bookkeeping, Software Design, ChatGPT ]
 ---

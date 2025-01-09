@@ -1,7 +1,6 @@
 ---
 title: Three Maps
 createdAt: 2023-06-25T21:40:03 +0800
-author: yan_h
 categories: [ Career ]
 tags: [ Career, Staff Engineer, Coaching, 「The Staff Engineer's Path」 ]
 ---

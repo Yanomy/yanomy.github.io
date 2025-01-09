@@ -1,7 +1,6 @@
 ---
 title: The Pillars of Staff Engineering
 createdAt: 2023-06-27T23:14:48 +0800
-author: yan_h
 categories: [ Career ]
 tags: [ Career, Staff Engineer, Coaching, 「The Staff Engineer's Path」 ]
 ---

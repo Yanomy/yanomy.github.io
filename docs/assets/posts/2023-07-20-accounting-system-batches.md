@@ -1,7 +1,6 @@
 ---
 title: Accounting System Batches
 createdAt: 2023-7-20T17:10:23 +0800
-author: yan_h
 categories: [ Accounting ]
 tags: [ Accounting, Bookkeeping, Software Design ]
 ---
