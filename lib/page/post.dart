@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:yanomy_github_io/model/post.dart';
 import 'package:yanomy_github_io/page/category.dart';
 import 'package:yanomy_github_io/page/tag.dart';
@@ -44,37 +45,46 @@ class PostTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(DatetimeUtil.formatDatetime(post.createdAt),
-            style: Theme.of(context).textTheme.bodySmall),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(post.title,
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge
-                    ?.copyWith(fontWeight: FontWeight.bold)),
-            if (post.categories.isNotEmpty) ..._buildCategories(post.categories)
-          ],
-        ),
-        if (post.tags.isNotEmpty)
-          Padding(
-              padding: EdgeInsets.only(top: 4),
-              child: _buildTagList(post.tags)),
-        if (post.contents.isNotEmpty)
-          Padding(
-              padding: EdgeInsets.only(top: 12),
-              child: _buildSummary(context, post)),
-      ],
+    return InkWell(
+      onTap: () => _goPostDetailPage(context),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(DatetimeUtil.formatDatetime(post.createdAt),
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .bodySmall),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(post.title,
+                  style: Theme
+                      .of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(fontWeight: FontWeight.bold)),
+              if (post.categories.isNotEmpty) ..._buildCategories(
+                  post.categories)
+            ],
+          ),
+          if (post.tags.isNotEmpty)
+            Padding(
+                padding: EdgeInsets.only(top: 4),
+                child: _buildTagList(post.tags)),
+          if (post.contents.isNotEmpty)
+            Padding(
+                padding: EdgeInsets.only(top: 12),
+                child: _buildSummary(context, post)),
+        ],
+      ),
     );
   }
 
   _buildCategories(List<PostCategory> categories) {
     List<Widget> widgets = categories
-        .map((c) => Padding(
+        .map((c) =>
+        Padding(
             padding: EdgeInsets.only(left: 4),
             child: Category(
               category: c,
@@ -85,9 +95,10 @@ class PostTile extends StatelessWidget {
 
   _buildTagList(List<String> tags) {
     List<Widget> widgets = tags
-        .map((t) => Tag(
-              tag: t,
-            ))
+        .map((t) =>
+        Tag(
+          tag: t,
+        ))
         .toList();
     List<Widget> joined = [];
     for (var i = 0; i < widgets.length; i++) {
@@ -110,11 +121,19 @@ class PostTile extends StatelessWidget {
         post.summary,
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
-        style: Theme.of(context)
+        style: Theme
+            .of(context)
             .textTheme
             .bodySmall
-            ?.copyWith(color: Colors.black54),
+            ?.copyWith(color: Theme
+            .of(context)
+            .colorScheme
+            .secondary),
       ),
     );
+  }
+
+  _goPostDetailPage(BuildContext context) {
+    context.push('/post', extra: post);
   }
 }

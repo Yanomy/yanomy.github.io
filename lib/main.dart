@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yanomy_github_io/home.dart';
+import 'package:yanomy_github_io/router.dart';
 import 'package:yanomy_github_io/theme.dart';
 
 void main() {
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Yanomy',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.system,
-      home: HomePage(),
+      routerConfig: router,
     );
   }
 }

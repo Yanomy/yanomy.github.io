@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
 import 'package:yanomy_github_io/page/post.dart';
@@ -29,9 +31,9 @@ class HomePage extends StatelessWidget {
                 title: Text(_getTitleByIndex(_controller.selectedIndex)),
                 leading: IconButton(
                   onPressed: () {
-                    // if (!Platform.isAndroid && !Platform.isIOS) {
-                    //   _controller.setExtended(true);
-                    // }
+                    if (!Platform.isAndroid && !Platform.isIOS) {
+                      _controller.setExtended(true);
+                    }
                     _key.currentState?.openDrawer();
                   },
                   icon: const Icon(Icons.menu),
@@ -43,15 +45,7 @@ class HomePage extends StatelessWidget {
           children: [
             isSmallScreen? SizedBox.shrink() : _buildSidebar(),
             Expanded(
-              child: Column(
-                children: [
-                  Text("Yanomy.com"),
-                  ElevatedButton(
-                      onPressed: () => AssetsUtil.allPosts(),
-                      child: Text("load")),
-                  Expanded(child: PostList()),
-                ],
-              ),
+              child: PostList(),
             ),
           ],
         ),
