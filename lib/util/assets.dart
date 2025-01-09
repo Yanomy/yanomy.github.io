@@ -9,7 +9,7 @@ class AssetsUtil {
     AssetManifest manifest =
         await AssetManifest.loadFromAssetBundle(rootBundle);
     List<String> assets =
-        manifest.listAssets().where((a) => a.startsWith("posts/")).toList();
+        manifest.listAssets().where((a) => a.startsWith("assets/posts/")).toList();
     List<Post> posts = [];
     for (var a in assets) {
       String data = await rootBundle.loadString(a);

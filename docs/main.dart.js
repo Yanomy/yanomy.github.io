@@ -72724,7 +72724,7 @@ A.a7r.prototype={
 $0(){return A.ke("tapped tag "+this.a.c)},
 $S:0}
 A.SD.prototype={
-$1(a){return B.d.bx(a,"posts/")},
+$1(a){return B.d.bx(a,"assets/posts/")},
 $S:31}
 A.i8.prototype={
 F(){return"PostMetadata."+this.b},
