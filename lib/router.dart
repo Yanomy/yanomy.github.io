@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yanomy_github_io/home.dart';
+import 'package:yanomy_github_io/page/me/me-page.dart';
 import 'package:yanomy_github_io/page/post/post-detail-page.dart';
 import 'package:yanomy_github_io/util/store.dart';
 
@@ -29,4 +30,5 @@ GoRouter router = GoRouter(
             }
             return PostDetailPage(post: post);
           }),
+      GoRoute(name: 'me', path: "/me", builder: (context, state) => MePage()),
     ]);
