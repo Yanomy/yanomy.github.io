@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
-import 'package:yanomy_github_io/page/post.dart';
+import 'package:yanomy_github_io/page/post/post.dart';
 import 'package:yanomy_github_io/util/assets.dart';
 
 const primaryColor = Color(0xFF685BFF);
