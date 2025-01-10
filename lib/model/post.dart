@@ -30,9 +30,13 @@ class Post {
       this.categories = const [],
       this.tags = const []});
 
+  String get id => "${createdAt.millisecondsSinceEpoch}";
+
   String get summary {
-    String summary =
-        contents.substring(0, min(contents.length, 300)).replaceAll("\n", "").replaceAll('#', '');
+    String summary = contents
+        .substring(0, min(contents.length, 300))
+        .replaceAll("\n", "")
+        .replaceAll('#', '');
     return "$summary...";
   }
 }
