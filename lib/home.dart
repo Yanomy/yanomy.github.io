@@ -105,7 +105,7 @@ class HomePage extends StatelessWidget {
         SidebarXItem(
           iconBuilder:
               _iconBuilder(Icons.account_box, Icons.account_box_outlined),
-          label: 'Me',
+          label: 'About Me',
           onTap: () => context.goNamed('me'),
         ),
       ],
