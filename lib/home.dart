@@ -1,9 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sidebarx/sidebarx.dart';
 import 'package:yanomy_github_io/page/post/post.dart';
-import 'package:yanomy_github_io/util/assets.dart';
 
 const primaryColor = Color(0xFF685BFF);
 const canvasColor = Color(0xFF2E2E48);
@@ -21,29 +19,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isSmallScreen = MediaQuery.of(context).size.width < 600;
     return Builder(builder: (context) {
       return Scaffold(
         key: _key,
-        appBar: isSmallScreen
-            ? AppBar(
-                backgroundColor: canvasColor,
-                title: Text(_getTitleByIndex(_controller.selectedIndex)),
-                leading: IconButton(
-                  onPressed: () {
-                    if (!Platform.isAndroid && !Platform.isIOS) {
-                      _controller.setExtended(true);
-                    }
-                    _key.currentState?.openDrawer();
-                  },
-                  icon: const Icon(Icons.menu),
-                ),
-              )
-            : null,
-        drawer: _buildSidebar(),
         body: Row(
           children: [
-            isSmallScreen? SizedBox.shrink() : _buildSidebar(),
+            _buildSidebar(context),
             Expanded(
               child: PostList(),
             ),
@@ -53,37 +34,11 @@ class HomePage extends StatelessWidget {
     });
   }
 
-  String _getTitleByIndex(int index) {
-    switch (index) {
-      case 0:
-        return 'Home';
-      case 1:
-        return 'Search';
-      case 2:
-        return 'People';
-      case 3:
-        return 'Favorites';
-      case 4:
-        return 'Custom iconWidget';
-      case 5:
-        return 'Profile';
-      case 6:
-        return 'Settings';
-      default:
-        return 'Not found page';
-    }
-  }
-
-  _buildSidebar() {
+  _buildSidebar(BuildContext context) {
     return SidebarX(
       controller: _controller,
       animationDuration: Duration(milliseconds: 50),
       theme: SidebarXTheme(
-        margin: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: canvasColor,
-          borderRadius: BorderRadius.circular(20),
-        ),
         hoverColor: scaffoldBackgroundColor,
         textStyle: TextStyle(color: Colors.white.withOpacity(0.7)),
         selectedTextStyle: const TextStyle(color: Colors.white),
@@ -91,12 +46,11 @@ class HomePage extends StatelessWidget {
           color: Colors.white,
           fontWeight: FontWeight.w500,
         ),
+        decoration: BoxDecoration(
+          color: canvasColor,
+        ),
         itemTextPadding: const EdgeInsets.only(left: 30),
         selectedItemTextPadding: const EdgeInsets.only(left: 30),
-        itemDecoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: canvasColor),
-        ),
         selectedItemDecoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
@@ -139,25 +93,32 @@ class HomePage extends StatelessWidget {
       },
       items: [
         SidebarXItem(
+          iconBuilder: _iconBuilder(Icons.home, Icons.home_outlined),
           icon: Icons.home,
           label: 'Home',
-          onTap: () {
-            debugPrint('Home');
-          },
+          onTap: () => context.goNamed('home'),
         ),
-        const SidebarXItem(
-          icon: Icons.search,
-          label: 'Search',
+        SidebarXItem(
+          iconBuilder: _iconBuilder(Icons.article, Icons.article_outlined),
+          label: 'Posts',
         ),
-        const SidebarXItem(
-          icon: Icons.people,
-          label: 'People',
-        ),
-        const SidebarXItem(
-          iconWidget: FlutterLogo(size: 20),
-          label: 'Flutter',
+        SidebarXItem(
+          iconBuilder:
+              _iconBuilder(Icons.account_box, Icons.account_box_outlined),
+          label: 'Me',
+          onTap: () => context.goNamed('me'),
         ),
       ],
     );
+  }
+
+  SidebarXItemBuilder _iconBuilder(IconData icon, IconData selectedIcon) {
+    return (selected, hovered) => selected
+        ? Icon(selectedIcon, color: Colors.white, size: 20)
+        : Icon(
+            icon,
+            color: Colors.white.withAlpha(178),
+            size: 20,
+          );
   }
 }
