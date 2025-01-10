@@ -30,7 +30,7 @@ class Post {
       this.categories = const [],
       this.tags = const []});
 
-  String get id => "${createdAt.millisecondsSinceEpoch}";
+  String get id => "${createdAt.millisecondsSinceEpoch / 1000}";
 
   String get summary {
     String summary = contents
