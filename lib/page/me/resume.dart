@@ -102,11 +102,11 @@ class Resume extends StatelessWidget {
                 ?.copyWith(fontWeight: FontWeight.bold)),
         SizedBox(height: 20),
         Text("""
-As a software engineer specializing in the ERP industry, I focus on building robust, testable, and high-performance applications, primarily using Java. With extensive expertise in designing, developing, and evaluating HR & Payroll systems, I thrive in agile teams and prefer working within frameworks like Scrum.
+As an engineer, I bring a profound understanding of the payment ecosystem, with expertise in addressing pain points in transaction flows and enabling seamless solutions across countries and regions. My passion lies in designing and optimizing systems that enhance user experiences and drive efficiency.
 
-As a tech enthusiast, I am deeply interested in back-end architecture and related technologies, including messaging systems, microservices, databases, caching, and containerization.
+As a tech enthusiast, I am deeply interested in backend architecture and related technologies, including messaging systems, microservices, databases, caching solutions, and containerization. I prioritize practical, reliable solutions that solve real-world problems over chasing cutting-edge technologies for their novelty.
 
-As a team leader, I bring a comprehensive understanding of software development models and life cycles. My solid technical foundation and extensive experience enable me to adapt and apply suitable methodologies to different projects while effectively collaborating with cross-functional teams. For my team members, I strive to lead by example, acting as a guide and mentor rather than a boss.
+As a lead, I have extensive experience managing diverse teams across cultures and time zones. I excel in balancing team priorities, collaborating with cross-functional groups, and fulfilling my own commitments. My adaptable leadership style enables me to align with team dynamics and deliver impactful results.
         """,
             style: Theme.of(context)
                 .textTheme
