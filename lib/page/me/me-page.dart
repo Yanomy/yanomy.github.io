@@ -13,7 +13,6 @@ class MePage extends StatelessWidget {
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          SizedBox(height: 56, child: _builderHeader(context)),
           Expanded(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,29 +20,25 @@ class MePage extends StatelessWidget {
               children: [
                 Flexible(flex: 382, child: _buildProfileCol(context)),
                 SizedBox(width: 32),
-                Flexible(flex: 618, child: _buildResumeCol(context)),
+                Flexible(flex: 618, child: Padding(
+                  padding: const EdgeInsets.all(32.0),
+                  child: Resume(),
+                )),
               ],
             ),
           ),
-          SizedBox(height: 40, child: _builderFooter(context)),
         ],
       ),
     );
   }
 
-  Widget _builderHeader(BuildContext context) {
-    return Container(color: Colors.amber);
-  }
-
   Widget _buildProfileCol(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxWidth: 300, minWidth: 200),
-      color: Colors.blue,
+      constraints: BoxConstraints(maxWidth: 300, minWidth: 250),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Container(
-            constraints: BoxConstraints(minWidth: 300),
             margin: EdgeInsets.all(32),
             clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
@@ -56,23 +51,15 @@ class MePage extends StatelessWidget {
     );
   }
 
-  Widget _buildResumeCol(BuildContext context) {
-    return Resume();
-  }
-
-  Widget _builderFooter(BuildContext context) {
-    return Container(color: Theme.of(context).hintColor);
-  }
-
   Widget _buildInfo(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 56),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Flexible(
-              flex: 500,
+              flex: 382,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -92,7 +79,7 @@ class MePage extends StatelessWidget {
               )),
           SizedBox(width: 24),
           Flexible(
-              flex: 500,
+              flex: 618,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

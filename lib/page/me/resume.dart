@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:yanomy_github_io/model/career.dart';
 import 'package:yanomy_github_io/model/education.dart';
 import 'package:yanomy_github_io/util/datetime.dart';
@@ -57,31 +58,78 @@ class Resume extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
+    return SelectionArea(
+      child: ListView(
+        shrinkWrap: true,
+        children: [
+          _buildName(context),
+          SizedBox(height: 32),
+          _buildAboutMe(context),
+          SizedBox(height: 32),
+          _buildCareers(context),
+          SizedBox(height: 32),
+          _buildEducations(context),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildName(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildCareers(context),
-        _buildEducations(context),
+        Text("Yan Hai", style: Theme.of(context).textTheme.displayLarge),
+        SizedBox(height: 4),
+        Text(
+            "Team Lead | Software Engineer | Problem Solver | Advocate of Domain-Driven Design",
+            style: Theme.of(context)
+                .textTheme
+                .titleSmall
+                ?.copyWith(color: Colors.black38)),
+      ],
+    );
+  }
+
+  Widget _buildAboutMe(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text("ABOUT ME",
+            style: Theme.of(context)
+                .textTheme
+                .headlineSmall
+                ?.copyWith(fontWeight: FontWeight.bold)),
+        SizedBox(height: 20),
+        Text("""
+As a software engineer specializing in the ERP industry, I focus on building robust, testable, and high-performance applications, primarily using Java. With extensive expertise in designing, developing, and evaluating HR & Payroll systems, I thrive in agile teams and prefer working within frameworks like Scrum.
+
+As a tech enthusiast, I am deeply interested in back-end architecture and related technologies, including messaging systems, microservices, databases, caching, and containerization.
+
+As a team leader, I bring a comprehensive understanding of software development models and life cycles. My solid technical foundation and extensive experience enable me to adapt and apply suitable methodologies to different projects while effectively collaborating with cross-functional teams. For my team members, I strive to lead by example, acting as a guide and mentor rather than a boss.
+        """,
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.copyWith(color: Colors.black54))
       ],
     );
   }
 
   Widget _buildCareers(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("Career",
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineSmall
-                  ?.copyWith(fontWeight: FontWeight.bold)),
-          SizedBox(height: 20),
-          ..._careers.asMap().entries.map(
-              (entry) => _buildCareer(context, entry.value, entry.key == 0))
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text("CAREER",
+            style: Theme.of(context)
+                .textTheme
+                .headlineSmall
+                ?.copyWith(fontWeight: FontWeight.bold)),
+        SizedBox(height: 20),
+        ..._careers
+            .asMap()
+            .entries
+            .map((entry) => _buildCareer(context, entry.value, entry.key == 0))
+      ],
     );
   }
 
@@ -105,11 +153,15 @@ class Resume extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  career.company.name,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      decoration: TextDecoration.underline,
-                      fontWeight: FontWeight.bold),
+                InkWell(
+                  onTap: () => launchUrl(Uri.parse(career.company.homepage),
+                      mode: LaunchMode.platformDefault),
+                  child: Text(
+                    career.company.name,
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
                 SizedBox(height: 6),
                 Text(career.duration),
@@ -126,86 +178,6 @@ class Resume extends StatelessWidget {
   }
 
   Widget _buildPosition(BuildContext context, Position position, bool isLast) {
-    return _buildEntry(
-        context,
-        position.title,
-        "${DateTimeUtil.formatYearMonth(position.startDate)} - ${position.endDate == null ? 'Present' : DateTimeUtil.formatYearMonth(position.endDate!)} · ${position.duration}",
-        position.location,
-        isLast);
-  }
-
-  Widget _buildEducations(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("Education",
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineSmall
-                  ?.copyWith(fontWeight: FontWeight.bold)),
-          SizedBox(height: 20),
-          ..._educations.asMap().entries.map(
-              (entry) => _buildEducation(context, entry.value, entry.key == 0))
-        ],
-      ),
-    );
-  }
-
-  Widget _buildEducation(
-      BuildContext context, Education education, bool isFirst) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        if (!isFirst)
-          Divider(
-            color: Colors.black12,
-            height: 32,
-          ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox.square(
-                dimension: 48, child: Image.asset(education.school.logo)),
-            SizedBox(width: 8),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    education.school.name,
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        decoration: TextDecoration.underline,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 6),
-                  Text("${education.degree}, ${education.field}"),
-                  SizedBox(height: 6),
-                  Text("Grade: ${education.grade}"),
-                  SizedBox(height: 6),
-                  Text(
-                      "${DateTimeUtil.formatYearMonth(education.startDate)} - ${education.endDate == null ? 'Present' : DateTimeUtil.formatYearMonth(education.endDate!)}"),
-                ],
-              ),
-            ),
-            Text(
-              education.school.location,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall
-                  ?.copyWith(color: Colors.black54),
-            )
-          ],
-        ),
-        SizedBox(height: 24),
-      ],
-    );
-  }
-
-  Widget _buildEntry(BuildContext context, String title, String subTitle,
-      String location, bool isLast) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -241,25 +213,96 @@ class Resume extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
+                position.title,
                 style: Theme.of(context)
                     .textTheme
                     .titleMedium
                     ?.copyWith(fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 6),
-              Text(subTitle),
+              Text(
+                  "${DateTimeUtil.formatYearMonth(position.startDate)} - ${position.endDate == null ? 'Present' : DateTimeUtil.formatYearMonth(position.endDate!)} · ${position.duration}"),
               SizedBox(height: 24),
             ],
           ),
         ),
         Text(
-          location,
+          position.location,
           style: Theme.of(context)
               .textTheme
               .bodySmall
               ?.copyWith(color: Colors.black54),
         )
+      ],
+    );
+  }
+
+  Widget _buildEducations(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text("EDUCATION",
+            style: Theme.of(context)
+                .textTheme
+                .headlineSmall
+                ?.copyWith(fontWeight: FontWeight.bold)),
+        SizedBox(height: 20),
+        ..._educations.asMap().entries.map(
+            (entry) => _buildEducation(context, entry.value, entry.key == 0))
+      ],
+    );
+  }
+
+  Widget _buildEducation(
+      BuildContext context, Education education, bool isFirst) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (!isFirst)
+          Divider(
+            color: Colors.black12,
+            height: 32,
+          ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox.square(
+                dimension: 48, child: Image.asset(education.school.logo)),
+            SizedBox(width: 8),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  InkWell(
+                    onTap: () => launchUrl(Uri.parse(education.school.homepage),
+                        mode: LaunchMode.platformDefault),
+                    child: Text(
+                      education.school.name,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          decoration: TextDecoration.underline,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  SizedBox(height: 6),
+                  Text("${education.degree}, ${education.field}"),
+                  SizedBox(height: 6),
+                  Text("Grade: ${education.grade}"),
+                  SizedBox(height: 6),
+                  Text(
+                      "${DateTimeUtil.formatYearMonth(education.startDate)} - ${education.endDate == null ? 'Present' : DateTimeUtil.formatYearMonth(education.endDate!)}"),
+                ],
+              ),
+            ),
+            Text(
+              education.school.location,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodySmall
+                  ?.copyWith(color: Colors.black54),
+            )
+          ],
+        ),
       ],
     );
   }
