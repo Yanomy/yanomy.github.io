@@ -1,3 +1,5 @@
+import 'package:yanomy_github_io/util/datetime.dart';
+
 enum School {
   ncu(
       name: "Nanchang University",
@@ -28,7 +30,7 @@ class Education {
   final String degree;
   final String field;
   final DateTime startDate;
-  final DateTime endDate;
+  final DateTime? endDate;
   final String grade;
 
   Education(
@@ -38,4 +40,7 @@ class Education {
       required this.startDate,
       required this.endDate,
       required this.grade});
+  String get duration {
+    return DateTimeUtil.different(startDate, endDate);
+  }
 }

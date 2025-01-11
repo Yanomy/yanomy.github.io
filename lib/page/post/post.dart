@@ -52,7 +52,7 @@ class PostTile extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(DatetimeUtil.formatDatetime(post.createdAt),
+          Text(DateTimeUtil.formatDatetime(post.createdAt),
               style: Theme.of(context).textTheme.bodySmall),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,

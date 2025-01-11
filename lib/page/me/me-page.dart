@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yanomy_github_io/page/me/profile-image.dart';
+import 'package:yanomy_github_io/page/me/resume.dart';
 
 class MePage extends StatelessWidget {
   const MePage({super.key});
@@ -15,9 +16,11 @@ class MePage extends StatelessWidget {
           SizedBox(height: 56, child: _builderHeader(context)),
           Expanded(
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Flexible(flex: 382, child: _buildProfileCol(context)),
+                SizedBox(width: 32),
                 Flexible(flex: 618, child: _buildResumeCol(context)),
               ],
             ),
@@ -34,7 +37,7 @@ class MePage extends StatelessWidget {
 
   Widget _buildProfileCol(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxWidth: 350, minWidth: 250),
+      constraints: BoxConstraints(maxWidth: 300, minWidth: 200),
       color: Colors.blue,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,7 +57,7 @@ class MePage extends StatelessWidget {
   }
 
   Widget _buildResumeCol(BuildContext context) {
-    return Container(color: Colors.black12);
+    return Resume();
   }
 
   Widget _builderFooter(BuildContext context) {
