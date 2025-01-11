@@ -20,10 +20,12 @@ class MePage extends StatelessWidget {
               children: [
                 Flexible(flex: 382, child: _buildProfileCol(context)),
                 SizedBox(width: 32),
-                Flexible(flex: 618, child: Padding(
-                  padding: const EdgeInsets.all(32.0),
-                  child: Resume(),
-                )),
+                Flexible(
+                    flex: 618,
+                    child: Padding(
+                      padding: const EdgeInsets.all(32.0),
+                      child: Resume(),
+                    )),
               ],
             ),
           ),
@@ -41,8 +43,7 @@ class MePage extends StatelessWidget {
           Container(
             margin: EdgeInsets.all(32),
             clipBehavior: Clip.hardEdge,
-            decoration: BoxDecoration(
-                color: Colors.grey, borderRadius: BorderRadius.circular(10)),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
             child: ProfilePhoto(),
           ),
           Expanded(child: _buildInfo(context))
@@ -59,7 +60,7 @@ class MePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Flexible(
-              flex: 382,
+              flex: 322,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -109,7 +110,8 @@ class MePage extends StatelessWidget {
             text,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: GoogleFonts.quantico(decoration: TextDecoration.underline, fontSize: 14),
+            style: GoogleFonts.quantico(
+                decoration: TextDecoration.underline, fontSize: 14),
           ),
         ),
       ),

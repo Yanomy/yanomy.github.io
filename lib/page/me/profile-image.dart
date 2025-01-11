@@ -10,10 +10,7 @@ class ProfilePhoto extends StatelessWidget {
       return SizedBox(
         height: maxWidth / 3 * 4,
         width: maxWidth,
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Image.asset('assets/images/avatar.png', fit: BoxFit.cover),
-        ),
+        child: Image.asset('assets/images/avatar.png', fit: BoxFit.cover),
       );
     });
   }
