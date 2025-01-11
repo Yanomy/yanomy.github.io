@@ -60,7 +60,7 @@ class MePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Flexible(
-              flex: 322,
+              flex: 300,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -80,7 +80,7 @@ class MePage extends StatelessWidget {
               )),
           SizedBox(width: 24),
           Flexible(
-              flex: 618,
+              flex: 600,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -110,7 +110,7 @@ class MePage extends StatelessWidget {
             text,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: GoogleFonts.quantico(
+            style: GoogleFonts.bebasNeue(
                 decoration: TextDecoration.underline, fontSize: 14),
           ),
         ),

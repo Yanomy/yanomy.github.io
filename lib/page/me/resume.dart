@@ -60,6 +60,7 @@ class Resume extends StatelessWidget {
   Widget build(BuildContext context) {
     return SelectionArea(
       child: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 32),
         shrinkWrap: true,
         children: [
           _buildName(context),
