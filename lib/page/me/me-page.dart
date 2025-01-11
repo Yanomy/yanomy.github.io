@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yanomy_github_io/page/me/profile-image.dart';
 import 'package:yanomy_github_io/page/me/resume.dart';
@@ -10,27 +9,30 @@ class MePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Expanded(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Flexible(flex: 382, child: _buildProfileCol(context)),
-                SizedBox(width: 32),
-                Flexible(
-                    flex: 618,
-                    child: Padding(
-                      padding: const EdgeInsets.all(32.0),
-                      child: Resume(),
-                    )),
-              ],
-            ),
-          ),
-        ],
-      ),
+      body: LayoutBuilder(builder: (context, constraints) {
+        if (constraints.maxWidth > 750) {
+          // for desktop
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Flexible(flex: 382, child: _buildProfileCol(context)),
+              // SizedBox(width: 32),
+              Flexible(
+                  flex: 618,
+                  child: Padding(
+                    padding: const EdgeInsets.all(32.0),
+                    child: Resume(isSmallScreen: false),
+                  )),
+            ],
+          );
+        }
+
+        return Padding(
+          padding: const EdgeInsets.all(32.0),
+          child: Resume(isSmallScreen: true),
+        );
+      }),
     );
   }
 
@@ -110,8 +112,10 @@ class MePage extends StatelessWidget {
             text,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                decoration: TextDecoration.underline),
+            style: Theme.of(context)
+                .textTheme
+                .bodySmall
+                ?.copyWith(decoration: TextDecoration.underline),
           ),
         ),
       ),

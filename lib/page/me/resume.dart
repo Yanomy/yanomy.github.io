@@ -54,7 +54,9 @@ List<Education> _educations = [
 ];
 
 class Resume extends StatelessWidget {
-  const Resume({super.key});
+  final bool isSmallScreen;
+
+  const Resume({super.key, required this.isSmallScreen});
 
   @override
   Widget build(BuildContext context) {
@@ -158,6 +160,8 @@ As a lead, I have extensive experience managing diverse teams across cultures an
                   onTap: () => launchUrl(Uri.parse(career.company.homepage),
                       mode: LaunchMode.platformDefault),
                   child: Text(
+                    maxLines: 1,
+                    overflow: TextOverflow.visible,
                     career.company.name,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         decoration: TextDecoration.underline,
@@ -165,7 +169,11 @@ As a lead, I have extensive experience managing diverse teams across cultures an
                   ),
                 ),
                 SizedBox(height: 6),
-                Text(career.duration),
+                Text(
+                  maxLines: 1,
+                  overflow: TextOverflow.visible,
+                  career.duration,
+                ),
               ],
             )
           ],
@@ -214,6 +222,8 @@ As a lead, I have extensive experience managing diverse teams across cultures an
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
+                maxLines: 1,
+                overflow: TextOverflow.visible,
                 position.title,
                 style: Theme.of(context)
                     .textTheme
@@ -222,18 +232,23 @@ As a lead, I have extensive experience managing diverse teams across cultures an
               ),
               SizedBox(height: 6),
               Text(
+                  maxLines: 1,
+                  overflow: TextOverflow.visible,
                   "${DateTimeUtil.formatYearMonth(position.startDate)} - ${position.endDate == null ? 'Present' : DateTimeUtil.formatYearMonth(position.endDate!)} · ${position.duration}"),
               SizedBox(height: 24),
             ],
           ),
         ),
-        Text(
-          position.location,
-          style: Theme.of(context)
-              .textTheme
-              .bodySmall
-              ?.copyWith(color: Colors.black54),
-        )
+        if (!isSmallScreen)
+          Text(
+            maxLines: 1,
+            overflow: TextOverflow.visible,
+            position.location,
+            style: Theme.of(context)
+                .textTheme
+                .bodySmall
+                ?.copyWith(color: Colors.black54),
+          )
       ],
     );
   }
@@ -243,6 +258,8 @@ As a lead, I have extensive experience managing diverse teams across cultures an
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text("EDUCATION",
+            maxLines: 1,
+            overflow: TextOverflow.visible,
             style: Theme.of(context)
                 .textTheme
                 .headlineSmall
@@ -279,6 +296,8 @@ As a lead, I have extensive experience managing diverse teams across cultures an
                     onTap: () => launchUrl(Uri.parse(education.school.homepage),
                         mode: LaunchMode.platformDefault),
                     child: Text(
+                      maxLines: 1,
+                      overflow: TextOverflow.visible,
                       education.school.name,
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           decoration: TextDecoration.underline,
@@ -286,24 +305,39 @@ As a lead, I have extensive experience managing diverse teams across cultures an
                     ),
                   ),
                   SizedBox(height: 6),
-                  Text("${education.degree}, ${education.field}"),
-                  SizedBox(height: 6),
-                  Text("Grade: ${education.grade}"),
+                  Text(
+                    maxLines: 1,
+                    overflow: TextOverflow.visible,
+                    "${education.degree}, ${education.field}",
+                  ),
                   SizedBox(height: 6),
                   Text(
-                      "${DateTimeUtil.formatYearMonth(education.startDate)} - ${education.endDate == null ? 'Present' : DateTimeUtil.formatYearMonth(education.endDate!)}"),
+                    maxLines: 1,
+                    overflow: TextOverflow.visible,
+                    "Grade: ${education.grade}",
+                  ),
+                  SizedBox(height: 6),
+                  Text(
+                    "${DateTimeUtil.formatYearMonth(education.startDate)} - ${education.endDate == null ? 'Present' : DateTimeUtil.formatYearMonth(education.endDate!)}",
+                    maxLines: 1,
+                    overflow: TextOverflow.visible,
+                  ),
                 ],
               ),
             ),
-            Text(
-              education.school.location,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall
-                  ?.copyWith(color: Colors.black54),
-            )
+            if (!isSmallScreen)
+              Text(
+                maxLines: 1,
+                overflow: TextOverflow.visible,
+                education.school.location,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall
+                    ?.copyWith(color: Colors.black54),
+              )
           ],
         ),
+
       ],
     );
   }
