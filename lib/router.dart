@@ -16,7 +16,7 @@ GoRouter router = GoRouter(
     routes: [
       GoRoute(
         name: 'home',
-        path: "/",
+        path: "/home",
         builder: (context, state) => HomePage(),
       ),
       GoRoute(
@@ -30,5 +30,5 @@ GoRouter router = GoRouter(
             }
             return PostDetailPage(post: post);
           }),
-      GoRoute(name: 'me', path: "/me", builder: (context, state) => MePage()),
+      GoRoute(name: 'me', path: "/", builder: (context, state) => MePage()),
     ]);

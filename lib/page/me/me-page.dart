@@ -36,12 +36,12 @@ class MePage extends StatelessWidget {
 
   Widget _buildProfileCol(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxWidth: 300, minWidth: 250),
+      constraints: BoxConstraints(maxWidth: 250, minWidth: 200),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Container(
-            margin: EdgeInsets.all(32),
+            margin: EdgeInsets.fromLTRB(16, 32, 16, 48),
             clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
             child: ProfilePhoto(),
@@ -110,7 +110,7 @@ class MePage extends StatelessWidget {
             text,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
                 decoration: TextDecoration.underline),
           ),
         ),
