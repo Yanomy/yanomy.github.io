@@ -110,8 +110,8 @@ class MePage extends StatelessWidget {
             text,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: GoogleFonts.bebasNeue(
-                decoration: TextDecoration.underline, fontSize: 14),
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                decoration: TextDecoration.underline),
           ),
         ),
       ),
