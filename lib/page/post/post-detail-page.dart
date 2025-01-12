@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:yanomy_github_io/model/post.dart';
+import 'package:yanomy_github_io/widget/markdown.dart';
 
 class PostDetailPage extends StatelessWidget {
   final Post post;
@@ -10,9 +11,11 @@ class PostDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<md.Node> nodes = md.Document().parse(post.contents);
     return Scaffold(
       body: SelectionArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(16.0, 32, 0, 0),
@@ -24,9 +27,7 @@ class PostDetailPage extends StatelessWidget {
               ),
             ),
             Expanded(
-                child: Markdown(
-                    data: post.contents,
-                    extensionSet: md.ExtensionSet.gitHubFlavored)),
+                child: ListView(children: buildNodes(context, nodes))),
           ],
         ),
       ),

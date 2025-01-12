@@ -38,8 +38,12 @@ enum HtmlTag {
   th,
   thead,
   tr,
-  ul,
+  ul(isMultiLine: true),
   ;
+
+  final bool isMultiLine;
+
+  const HtmlTag({this.isMultiLine = false});
 
   static HtmlTag of(String tag) {
     for (var t in values) {
@@ -50,12 +54,8 @@ enum HtmlTag {
     throw Exception("Unknown HTML tag: $tag");
   }
 
-  Widget decorate(BuildContext context, List<Widget> children) {
-    var row = Row(
-      textBaseline: TextBaseline.alphabetic,
-      mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.baseline,
-        children: decorateInline(context, children));
+  Widget decorate(BuildContext context, List<TextSpan> children) {
+    var row = Text.rich(TextSpan(text: "", children: decorateInline(context, children)));
     return switch (this) {
       p => Padding(
           padding: EdgeInsets.symmetric(vertical: 4),
@@ -89,10 +89,10 @@ enum HtmlTag {
     };
   }
 
-  List<Widget> decorateInline(BuildContext context, List<Widget> children,
+  List<TextSpan> decorateInline(BuildContext context, List<TextSpan> children,
       [String? text]) {
     if (text == null) return children;
-    return [Text(text, style: style(context))];
+    return [TextSpan(text: text, style: style(context))];
   }
 
   TextStyle style(BuildContext context, [TextStyle? inherit]) => switch (this) {
