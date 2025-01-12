@@ -10,12 +10,21 @@ class PostDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        title: Text(post.title),
-      ),
-      body: Center(
-        child: SelectionArea(child: Markdown(data: post.contents)),
+      body: SelectionArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16.0, 32, 0, 0),
+              child: Row(
+                children: [
+                  Text(post.title,
+                      style: Theme.of(context).textTheme.displayLarge),
+                ],
+              ),
+            ),
+            Expanded(child: Markdown(data: post.contents)),
+          ],
+        ),
       ),
     );
   }

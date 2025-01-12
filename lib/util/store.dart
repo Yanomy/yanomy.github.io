@@ -1,32 +1,42 @@
+import 'dart:convert';
+
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yanomy_github_io/model/post.dart';
 
 class PostStore {
-  static final PostStore _instance = PostStore._();
+  static late PostStore _instance;
 
   static PostStore get() => _instance;
 
-  late int _version;
-  late Map<String, Post> _posts;
+   int _version;
+  final SharedPreferences _posts;
 
-  PostStore._() {
-    _version = DateTime.now().millisecondsSinceEpoch;
-    _posts = {};
+  static init() async{
+    var prefs = await SharedPreferences.getInstance();
+    _instance = PostStore._(prefs);
   }
 
-  void putAll(List<Post> posts) {
+  PostStore._(this._posts) : _version = DateTime.now().millisecondsSinceEpoch;
+
+  void putAll(List<Post> posts) async {
     _posts.clear();
     for (var post in posts) {
-      _posts[post.id] = post;
+      _posts.setString(post.id, jsonEncode(post.toJson()));
     }
     _updateVersion();
   }
 
   List<Post> getAll() {
-    return _posts.values.toList();
+    return _posts
+        .getKeys()
+        .map((key) => Post.fromJson(jsonDecode(_posts.getString(key)!)))
+        .toList();
   }
 
   Post? operator [](String postId) {
-    return _posts[postId];
+    var value = _posts.getString(postId);
+    if (value == null) return null;
+    return Post.fromJson(jsonDecode(value));
   }
 
   _updateVersion() {

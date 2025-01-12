@@ -1,5 +1,9 @@
 import 'dart:math';
 
+import 'package:json_annotation/json_annotation.dart';
+
+part 'post.g.dart';
+
 enum PostCategory {
   redis,
   career,
@@ -15,6 +19,7 @@ enum PostCategory {
   }
 }
 
+@JsonSerializable(explicitToJson: true)
 class Post {
   final String title;
   final DateTime createdAt;
@@ -29,6 +34,10 @@ class Post {
       required this.createdAt,
       this.categories = const [],
       this.tags = const []});
+
+  factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PostToJson(this);
 
   String get id => "${createdAt.millisecondsSinceEpoch / 1000}";
 

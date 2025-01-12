@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:yanomy_github_io/router.dart';
 import 'package:yanomy_github_io/theme.dart';
+import 'package:yanomy_github_io/util/store.dart';
 
 void main() {
   usePathUrlStrategy();
+  PostStore.init();
   runApp(const MyApp());
 }
 
