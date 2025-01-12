@@ -7,7 +7,7 @@ import 'package:yanomy_github_io/util/store.dart';
 
 import 'model/post.dart';
 
-const String _homeLocation = '/home';
+const String _homeLocation = '/';
 
 GoRouter router = GoRouter(
     initialLocation: _homeLocation,

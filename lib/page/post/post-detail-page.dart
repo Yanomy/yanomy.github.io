@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:markdown/markdown.dart' as md;
 import 'package:yanomy_github_io/model/post.dart';
 
 class PostDetailPage extends StatelessWidget {
@@ -22,7 +23,10 @@ class PostDetailPage extends StatelessWidget {
                 ],
               ),
             ),
-            Expanded(child: Markdown(data: post.contents)),
+            Expanded(
+                child: Markdown(
+                    data: post.contents,
+                    extensionSet: md.ExtensionSet.gitHubFlavored)),
           ],
         ),
       ),
