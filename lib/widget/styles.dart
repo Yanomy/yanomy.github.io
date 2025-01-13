@@ -28,3 +28,7 @@ TextStyle h6Text(BuildContext context, [TextStyle? inherit]) =>
 TextStyle strongText(BuildContext context, [TextStyle? inherit]) =>
     (inherit ?? Theme.of(context).textTheme.bodyMedium!)
         .copyWith(fontWeight:  FontWeight.bold);
+
+TextStyle codeText(BuildContext context, [TextStyle? inherit]) =>
+    (inherit ?? Theme.of(context).textTheme.bodyMedium!)
+        .copyWith(backgroundColor: Colors.red.withAlpha(75));

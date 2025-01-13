@@ -44,7 +44,7 @@ enum HtmlTag {
   final bool isMultiLine;
   final bool isNewLine;
 
-  const HtmlTag({this.isMultiLine = false, this.isNewLine=false});
+  const HtmlTag({this.isMultiLine = false, this.isNewLine = false});
 
   static HtmlTag of(String tag) {
     for (var t in values) {
@@ -56,7 +56,8 @@ enum HtmlTag {
   }
 
   Widget decorate(BuildContext context, List<TextSpan> children) {
-    var row = Text.rich(TextSpan(text: "", children: decorateInline(context, children)));
+    var row = Text.rich(
+        TextSpan(text: "", children: decorateInline(context, children)));
     return switch (this) {
       p => Padding(
           padding: EdgeInsets.symmetric(vertical: 4),
@@ -104,6 +105,7 @@ enum HtmlTag {
         h5 => h5Text(context, inherit),
         h6 => h6Text(context, inherit),
         strong => strongText(context, inherit),
+        code => codeText(context, inherit),
         p => bodyText(context, inherit),
         _ => unparsedContent(context, inherit)
       };
