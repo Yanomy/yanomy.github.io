@@ -29,7 +29,7 @@ enum HtmlTag {
   nav,
   ol,
   p,
-  pre,
+  pre(isNewLine: true),
   section,
   strong,
   table,
@@ -42,8 +42,9 @@ enum HtmlTag {
   ;
 
   final bool isMultiLine;
+  final bool isNewLine;
 
-  const HtmlTag({this.isMultiLine = false});
+  const HtmlTag({this.isMultiLine = false, this.isNewLine=false});
 
   static HtmlTag of(String tag) {
     for (var t in values) {

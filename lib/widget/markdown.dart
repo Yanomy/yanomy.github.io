@@ -7,7 +7,7 @@ List<Widget> buildNodes(BuildContext context, List<md.Node> nodes) {
   List<Widget> widgets = [];
   for (md.Node node in nodes) {
     if (node is md.Element) {
-      widgets.add(_parseTopLevelNode(context, node));
+      widgets.addAll(_parseTopLevelNode(context, node));
     } else {
       throw Exception("Unable to handle node type: ${node.runtimeType}");
     }
@@ -15,17 +15,44 @@ List<Widget> buildNodes(BuildContext context, List<md.Node> nodes) {
   return widgets;
 }
 
-Widget _parseTopLevelNode(BuildContext context, md.Node node) {
+List<Widget> _parseTopLevelNode(BuildContext context, md.Node node) {
+  List<Widget> children = [];
   if (node is md.Element) {
     HtmlTag tag = HtmlTag.of(node.tag);
-    return _parseElement(context, node, tag.style(context));
+    if (tag.isMultiLine) {
+      children
+          .addAll(_parseMultilineElement(context, node, tag.style(context)));
+    } else {
+      children.add(_parseElement(context, node, tag.style(context)));
+    }
   } else if (node is md.Text) {
-    return Text.rich(_parseText(context, node));
+    children.add(Text.rich(_parseText(context, node)));
   } else if (node is md.UnparsedContent) {
-    return Text.rich(_parseUnparsedContent(context, node));
+    children.add(Text.rich(_parseUnparsedContent(context, node)));
   } else {
     throw Exception("Unable to handle node type: ${node.runtimeType}");
   }
+  return children;
+}
+
+List<Widget> _parseMultilineElement(BuildContext context, md.Element element,
+    [TextStyle? parentStyle]) {
+  HtmlTag tag = HtmlTag.of(element.tag);
+  List<Widget> widgets = [];
+  switch (tag) {
+    case HtmlTag.ul:
+      {
+        if (element.children != null) {
+          for (var child in element.children!) {
+            widgets.add(tag.decorate(context, _parseNode(context, child)));
+          }
+        }
+        break;
+      }
+    case _:
+      {}
+  }
+  return widgets;
 }
 
 Widget _parseElement(BuildContext context, md.Element element,
@@ -56,7 +83,7 @@ List<TextSpan> _parseNode(BuildContext context, md.Node node,
 
 TextSpan _parseText(BuildContext context, md.Text node,
     [TextStyle? parentStyle]) {
-  return TextSpan(text: node.textContent, style: parentStyle);
+  return TextSpan(text: node.textContent.replaceAll("\n", ' '), style: parentStyle);
 }
 
 TextSpan _parseUnparsedContent(BuildContext context, md.UnparsedContent node,

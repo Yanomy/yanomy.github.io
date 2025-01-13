@@ -27,4 +27,4 @@ TextStyle h6Text(BuildContext context, [TextStyle? inherit]) =>
 
 TextStyle strongText(BuildContext context, [TextStyle? inherit]) =>
     (inherit ?? Theme.of(context).textTheme.bodyMedium!)
-        .copyWith(backgroundColor: Colors.redAccent);
+        .copyWith(fontWeight:  FontWeight.bold);
