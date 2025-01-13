@@ -1,4 +1,4 @@
-import 'package:yanomy_github_io/util/datetime.dart';
+import 'package:yanomic_github_io/util/datetime.dart';
 
 enum Company {
   worksApplication(

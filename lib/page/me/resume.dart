@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:yanomy_github_io/model/career.dart';
-import 'package:yanomy_github_io/model/education.dart';
-import 'package:yanomy_github_io/util/datetime.dart';
+import 'package:yanomic_github_io/model/career.dart';
+import 'package:yanomic_github_io/model/education.dart';
+import 'package:yanomic_github_io/util/datetime.dart';
 
 List<Career> _careers = [
   Career(company: Company.adyen, positions: [

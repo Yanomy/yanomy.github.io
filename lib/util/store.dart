@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yanomy_github_io/model/post.dart';
+import 'package:yanomic_github_io/model/post.dart';
 
 class PostStore {
   static late PostStore _instance;

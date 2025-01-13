@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:yanomy_github_io/widget/styles.dart';
+import 'package:yanomic_github_io/widget/styles.dart';
 
 enum HtmlTag {
   address,

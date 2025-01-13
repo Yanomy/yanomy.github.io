@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:yanomy_github_io/widget/markdown/html-tags.dart';
-import 'package:yanomy_github_io/widget/styles.dart' as style;
+import 'package:yanomic_github_io/widget/markdown/html-tags.dart';
+import 'package:yanomic_github_io/widget/styles.dart' as style;
 
 List<Widget> buildNodes(BuildContext context, List<md.Node> nodes) {
   List<Widget> widgets = [];

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yanomy_github_io/model/post.dart';
-import 'package:yanomy_github_io/page/post/category.dart';
-import 'package:yanomy_github_io/page/post/tag.dart';
-import 'package:yanomy_github_io/util/assets.dart';
-import 'package:yanomy_github_io/util/datetime.dart';
-import 'package:yanomy_github_io/util/store.dart';
+import 'package:yanomic_github_io/model/post.dart';
+import 'package:yanomic_github_io/page/post/category.dart';
+import 'package:yanomic_github_io/page/post/tag.dart';
+import 'package:yanomic_github_io/util/assets.dart';
+import 'package:yanomic_github_io/util/datetime.dart';
+import 'package:yanomic_github_io/util/store.dart';
 
 class PostList extends StatefulWidget {
   const PostList({super.key});

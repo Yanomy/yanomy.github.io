@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yanomy_github_io/model/post.dart';
+import 'package:yanomic_github_io/model/post.dart';
 
 class Category extends StatelessWidget {
   final PostCategory category;

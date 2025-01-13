@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yanomy_github_io/home.dart';
-import 'package:yanomy_github_io/page/me/me-page.dart';
-import 'package:yanomy_github_io/page/post/post-detail-page.dart';
-import 'package:yanomy_github_io/util/store.dart';
+import 'package:yanomic_github_io/home.dart';
+import 'package:yanomic_github_io/page/me/me-page.dart';
+import 'package:yanomic_github_io/page/post/post-detail-page.dart';
+import 'package:yanomic_github_io/util/store.dart';
 
 import 'model/post.dart';
 

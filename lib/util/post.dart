@@ -1,6 +1,5 @@
 import 'package:yaml/yaml.dart';
-import 'package:yanomy_github_io/model/post.dart';
-import 'package:yanomy_github_io/util/pair.dart';
+import 'package:yanomic_github_io/model/post.dart';
 
 class PostUtil {
   static RegExp sectionBoundary = RegExp(r'---\n');

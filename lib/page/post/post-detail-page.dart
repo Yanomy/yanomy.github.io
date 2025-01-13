@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:yanomy_github_io/model/post.dart';
-import 'package:yanomy_github_io/widget/markdown.dart';
+import 'package:yanomic_github_io/model/post.dart';
+import 'package:yanomic_github_io/widget/markdown.dart';
 
 class PostDetailPage extends StatelessWidget {
   final Post post;

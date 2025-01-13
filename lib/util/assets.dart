@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
-import 'package:yanomy_github_io/model/post.dart';
-import 'package:yanomy_github_io/util/post.dart';
-import 'package:yanomy_github_io/util/store.dart';
+import 'package:yanomic_github_io/model/post.dart';
+import 'package:yanomic_github_io/util/post.dart';
+import 'package:yanomic_github_io/util/store.dart';
 
 class AssetsUtil {
   AssetsUtil._();

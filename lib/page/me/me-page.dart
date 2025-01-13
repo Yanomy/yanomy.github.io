@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:yanomy_github_io/page/me/profile-image.dart';
-import 'package:yanomy_github_io/page/me/resume.dart';
+import 'package:yanomic_github_io/page/me/profile-image.dart';
+import 'package:yanomic_github_io/page/me/resume.dart';
 
 class MePage extends StatelessWidget {
   const MePage({super.key});
