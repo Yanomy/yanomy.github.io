@@ -25,5 +25,5 @@ TextStyle h6Text(BuildContext context,[TextStyle? inherit]) =>
     Theme.of(context).textTheme.headlineSmall!;
 
 TextStyle strongText(BuildContext context,[TextStyle? inherit]) =>
-    (inherit ?? Theme.of(context).textTheme.headlineSmall!)
+    (inherit ?? Theme.of(context).textTheme.bodyMedium!)
         .copyWith(backgroundColor: Colors.redAccent);

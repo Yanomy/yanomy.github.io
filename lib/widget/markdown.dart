@@ -45,12 +45,17 @@ List<TextSpan> _parseNode(
 List<TextSpan> _parseElementInline(
     BuildContext context, md.Element element, TextStyle parentStyle) {
   List<TextSpan> children = [];
+  HtmlTag tag = HtmlTag.of(element.tag);
   if (element.children != null) {
     for (md.Node child in element.children!) {
-      children.addAll(_parseNode(context, child, parentStyle));
+      children.addAll(_parseNode(
+        context,
+        child,
+        tag.style(context, parentStyle),
+      ));
     }
   }
-  HtmlTag tag = HtmlTag.of(element.tag);
+
   return tag.decorateInline(
       context, children, children.isEmpty ? element.textContent : null);
 }
