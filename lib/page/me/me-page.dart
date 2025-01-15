@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yanomic_github_io/page/me/profile-image.dart';
 import 'package:yanomic_github_io/page/me/resume.dart';
+import 'package:yanomic_github_io/util/brightness.dart';
 
 class MePage extends StatelessWidget {
   const MePage({super.key});
@@ -72,10 +73,12 @@ class MePage extends StatelessWidget {
                       margin: EdgeInsets.all(2),
                       width: 16,
                       child: Image.asset('assets/icons/github.png',
+                          color: byBrightness(context, dark: Colors.white,light:  null),
                           fit: BoxFit.contain)),
                   Container(
                       margin: EdgeInsets.all(2),
                       width: 16,
+                      color: byBrightness(context, dark: Colors.white,light:  null),
                       child: Image.asset('assets/icons/linkedin.png',
                           fit: BoxFit.contain))
                 ],

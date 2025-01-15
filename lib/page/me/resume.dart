@@ -78,6 +78,7 @@ class Resume extends StatelessWidget {
   }
 
   Widget _buildName(BuildContext context) {
+    Color? color = Theme.of(context).textTheme.bodyMedium?.color?.withAlpha(96);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -85,15 +86,15 @@ class Resume extends StatelessWidget {
         SizedBox(height: 4),
         Text(
             "Team Lead | Software Engineer | Problem Solver | Advocate of Domain-Driven Design",
-            style: Theme.of(context)
-                .textTheme
-                .titleSmall
-                ?.copyWith(color: Colors.black38)),
+            style:
+                Theme.of(context).textTheme.titleSmall?.copyWith(color: color)),
       ],
     );
   }
 
   Widget _buildAboutMe(BuildContext context) {
+    Color? color =
+        Theme.of(context).textTheme.bodyMedium?.color?.withAlpha(138);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -110,10 +111,8 @@ As a tech enthusiast, I am deeply interested in backend architecture and related
 
 As a lead, I have extensive experience managing diverse teams across cultures and time zones. I excel in balancing team priorities, collaborating with cross-functional groups, and fulfilling my own commitments. My adaptable leadership style enables me to align with team dynamics and deliver impactful results.
         """,
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium
-                ?.copyWith(color: Colors.black54))
+            style:
+                Theme.of(context).textTheme.bodyMedium?.copyWith(color: color))
       ],
     );
   }
@@ -187,6 +186,7 @@ As a lead, I have extensive experience managing diverse teams across cultures an
   }
 
   Widget _buildPosition(BuildContext context, Position position, bool isLast) {
+    Color? color = Theme.of(context).textTheme.bodySmall?.color?.withAlpha(138);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -244,10 +244,8 @@ As a lead, I have extensive experience managing diverse teams across cultures an
             maxLines: 1,
             overflow: TextOverflow.visible,
             position.location,
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall
-                ?.copyWith(color: Colors.black54),
+            style:
+                Theme.of(context).textTheme.bodySmall?.copyWith(color: color),
           )
       ],
     );
@@ -273,6 +271,7 @@ As a lead, I have extensive experience managing diverse teams across cultures an
 
   Widget _buildEducation(
       BuildContext context, Education education, bool isFirst) {
+    Color? color = Theme.of(context).textTheme.bodySmall?.color?.withAlpha(138);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -333,11 +332,10 @@ As a lead, I have extensive experience managing diverse teams across cultures an
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall
-                    ?.copyWith(color: Colors.black54),
+                    ?.copyWith(color: color),
               )
           ],
         ),
-
       ],
     );
   }
